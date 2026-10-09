@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamBoard - Tasks</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body {
+            background: #f5f6fc;
+            color: #252541;
+        }
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 240px;
+            background: #1f2140;
+            color: #fff;
+            padding: 28px 20px;
+        }
+        .brand { font-size: 28px; font-weight: 700; margin-bottom: 30px; }
+        .nav { display: flex; flex-direction: column; gap: 10px; }
+        .nav a {
+            color: #dfe3ff;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        .nav a.active, .nav a:hover { background: rgba(255,255,255,0.08); }
+        .main { flex: 1; padding: 32px; }
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+        .topbar h1 { font-size: 30px; }
+        .button {
+            background: #6254e8;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(200px, 1fr));
+            gap: 22px;
+        }
+        .column {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(30, 35, 70, 0.05);
+        }
+        .column h3 {
+            margin-bottom: 18px;
+        }
+        .task {
+            background: #f8f9ff;
+            border: 1px solid #e8ebff;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+        .task h4 {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .task p {
+            color: #6e728d;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .pill {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 8px;
+            border-radius: 999px;
+            margin-top: 12px;
+        }
+        .todo { background: #eef0ff; color: #4a4bd8; }
+        .doing { background: #fff1da; color: #b77800; }
+        .done { background: #eafaf1; color: #0f9b64; }
+        @media (max-width: 900px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .board { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="brand">📋 TeamBoard</div>
+            <nav class="nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="projects.html">Projects</a>
+                <a class="active" href="tasks.html">Tasks</a>
+                <a href="index.html">Home</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="topbar">
+                <h1>Tasks</h1>
+                <a href="tasks.html" class="button">+ Add Task</a>
+            </div>
+
+            <section class="board">
+                <div class="column">
+                    <h3>To Do</h3>
+                    <div class="task">
+                        <h4>Finalize onboarding flow</h4>
+                        <p>Review user steps and remove low-value screens.</p>
+                        <span class="pill todo">Design</span>
+                    </div>
+                    <div class="task">
+                        <h4>Draft sprint retro</h4>
+                        <p>Collect feedback from the engineering team.</p>
+                        <span class="pill todo">Planning</span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h3>In Progress</h3>
+                    <div class="task">
+                        <h4>Build sales dashboard</h4>
+                        <p>Connect analytics source and validate conversion metrics.</p>
+                        <span class="pill doing">Development</span>
+                    </div>
+                    <div class="task">
+                        <h4>Update client portal</h4>
+                        <p>Refine access control and project status visibility.</p>
+                        <span class="pill doing">QA</span>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h3>Done</h3>
+                    <div class="task">
+                        <h4>Prepare launch checklist</h4>
+                        <p>Finalize dependencies and publish required documentation.</p>
+                        <span class="pill done">Completed</span>
+                    </div>
+                    <div class="task">
+                        <h4>Upload product photos</h4>
+                        <p>New asset pack has been approved by marketing.</p>
+                        <span class="pill done">Completed</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamBoard - Projects</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body {
+            background: #f5f6fc;
+            color: #252541;
+        }
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 240px;
+            background: #1f2140;
+            color: #fff;
+            padding: 28px 20px;
+        }
+        .brand { font-size: 28px; font-weight: 700; margin-bottom: 30px; }
+        .nav { display: flex; flex-direction: column; gap: 10px; }
+        .nav a {
+            color: #dfe3ff;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        .nav a.active, .nav a:hover { background: rgba(255,255,255,0.08); }
+        .main { flex: 1; padding: 32px; }
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+        .topbar h1 { font-size: 30px; }
+        .button {
+            background: #6254e8;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(220px, 1fr));
+            gap: 22px;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 10px 25px rgba(30, 35, 70, 0.05);
+        }
+        .project-card h3 { margin-bottom: 10px; }
+        .project-card p { color: #6d728d; line-height: 1.7; margin-bottom: 16px; }
+        .tag {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #eef0ff;
+            color: #4b4ad8;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        @media (max-width: 900px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="brand">📋 TeamBoard</div>
+            <nav class="nav">
+                <a href="dashboard.html">Dashboard</a>
+                <a class="active" href="projects.html">Projects</a>
+                <a href="tasks.html">Tasks</a>
+                <a href="index.html">Home</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="topbar">
+                <h1>Projects</h1>
+                <a href="tasks.html" class="button">+ New Project</a>
+            </div>
+
+            <section class="grid">
+                <div class="project-card">
+                    <h3>Website Redesign</h3>
+                    <p>Overhaul the marketing site and improve landing page performance.</p>
+                    <span class="tag">Design</span>
+                </div>
+                <div class="project-card">
+                    <h3>Mobile App Launch</h3>
+                    <p>Coordinate release planning, QA validation, and marketing assets.</p>
+                    <span class="tag">Product</span>
+                </div>
+                <div class="project-card">
+                    <h3>Marketing Campaign</h3>
+                    <p>Plan multi-channel campaigns and measure early engagement signals.</p>
+                    <span class="tag">Marketing</span>
+                </div>
+                <div class="project-card">
+                    <h3>Client Portal</h3>
+                    <p>Ship a secure portal for clients to track project updates and files.</p>
+                    <span class="tag">Engineering</span>
+                </div>
+                <div class="project-card">
+                    <h3>HR Onboarding</h3>
+                    <p>Standardize onboarding tasks and automate required paperwork.</p>
+                    <span class="tag">Operations</span>
+                </div>
+                <div class="project-card">
+                    <h3>Internal Tools</h3>
+                    <p>Improve internal team workflows with dashboards and productivity tools.</p>
+                    <span class="tag">Automation</span>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

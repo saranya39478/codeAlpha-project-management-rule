@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamBoard - Dashboard</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body {
+            background: #f5f6fc;
+            color: #252541;
+        }
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 240px;
+            background: #1f2140;
+            color: #fff;
+            padding: 28px 20px;
+        }
+        .brand {
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .nav a {
+            color: #dfe3ff;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 10px;
+            display: block;
+            font-weight: 600;
+        }
+        .nav a.active, .nav a:hover {
+            background: rgba(255,255,255,0.08);
+        }
+        .main {
+            flex: 1;
+            padding: 32px;
+        }
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+        .topbar h1 {
+            font-size: 30px;
+        }
+        .button {
+            background: #6254e8;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(180px, 1fr));
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 10px 25px rgba(30, 35, 70, 0.05);
+        }
+        .kicker {
+            color: #7b7f98;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+        .metric {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .delta {
+            color: #27a669;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 22px;
+        }
+        .project-list, .task-list {
+            background: #fff;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 10px 25px rgba(30, 35, 70, 0.05);
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .table th, .table td {
+            text-align: left;
+            padding: 12px 0;
+            border-bottom: 1px solid #eef0f8;
+        }
+        .status {
+            display: inline-block;
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+        .in-progress { background: #ebf3ff; color: #2d6cdf; }
+        .review { background: #fff2d9; color: #b97700; }
+        .done { background: #eafaf1; color: #1d9d63; }
+        .task-list ul {
+            list-style: none;
+            margin-top: 18px;
+        }
+        .task-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid #eef0f8;
+        }
+        .task-name { font-weight: 700; }
+        .task-date { color: #777b93; font-size: 13px; }
+        @media (max-width: 900px) {
+            .layout { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .summary, .content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="brand">📋 TeamBoard</div>
+            <nav class="nav">
+                <a class="active" href="dashboard.html">Dashboard</a>
+                <a href="projects.html">Projects</a>
+                <a href="tasks.html">Tasks</a>
+                <a href="index.html">Home</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="topbar">
+                <h1>Dashboard</h1>
+                <a href="tasks.html" class="button">+ New Task</a>
+            </div>
+
+            <section class="summary">
+                <div class="card">
+                    <div class="kicker">Projects</div>
+                    <div class="metric">12</div>
+                    <div class="delta">+3 this month</div>
+                </div>
+                <div class="card">
+                    <div class="kicker">Tasks</div>
+                    <div class="metric">84</div>
+                    <div class="delta">+11 in progress</div>
+                </div>
+                <div class="card">
+                    <div class="kicker">Team Members</div>
+                    <div class="metric">18</div>
+                    <div class="delta">+2 new hires</div>
+                </div>
+                <div class="card">
+                    <div class="kicker">Completion</div>
+                    <div class="metric">76%</div>
+                    <div class="delta">+8% vs last week</div>
+                </div>
+            </section>
+
+            <section class="content">
+                <div class="project-list">
+                    <h2>Active Projects</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Project</th>
+                                <th>Owner</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Website Redesign</td>
+                                <td>Alice</td>
+                                <td><span class="status in-progress">In Progress</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mobile App Launch</td>
+                                <td>Mark</td>
+                                <td><span class="status review">Review</span></td>
+                            </tr>
+                            <tr>
+                                <td>Marketing Campaign</td>
+                                <td>Diana</td>
+                                <td><span class="status done">Done</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="task-list">
+                    <h2>Today’s Tasks</h2>
+                    <ul>
+                        <li>
+                            <div>
+                                <div class="task-name">Prepare sprint review</div>
+                                <div class="task-date">Due today</div>
+                            </div>
+                            <span class="status review">Review</span>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="task-name">Update sales deck</div>
+                                <div class="task-date">Due tomorrow</div>
+                            </div>
+                            <span class="status in-progress">In Progress</span>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="task-name">Fix onboarding flow</div>
+                                <div class="task-date">Due Thursday</div>
+                            </div>
+                            <span class="status done">Done</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
